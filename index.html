@@ -159,28 +159,6 @@
             transform: none;
         }
         
-        .success-message {
-            display: none;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .error-message {
-            display: none;
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        
         @media (max-width: 600px) {
             .info-section {
                 grid-template-columns: 1fr;
@@ -204,183 +182,180 @@
             <p>Complete your assigned tasks and check them off</p>
         </div>
         
-        <div class="form-content">
-            <div class="info-section">
-                <div class="input-group">
-                    <label for="studentName">Student Name *</label>
-                    <input type="text" id="studentName" name="studentName" required placeholder="Enter student name">
+        <form id="choreForm" action="https://engine.rewst.io/webhooks/custom/trigger/019be1ff-155a-7c00-ae39-1dd71708726e/24bb7605-f6ef-4806-a56f-bdf4e0fd45e5" method="POST" onsubmit="return prepareFormSubmission(event)">
+            <div class="form-content">
+                <div class="info-section">
+                    <div class="input-group">
+                        <label for="studentName">Student Name *</label>
+                        <input type="text" id="studentName" name="studentName" required placeholder="Enter student name">
+                    </div>
+                    <div class="input-group">
+                        <label for="staffName">Staff Name *</label>
+                        <input type="text" id="staffName" name="staffName" required placeholder="Enter staff name">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="staffName">Staff Name *</label>
-                    <input type="text" id="staffName" name="staffName" required placeholder="Enter staff name">
+                
+                <!-- CAFETERIA CHORES -->
+                <div class="section">
+                    <div class="section-title">🧹 Cafeteria Chores</div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="surfaces" data-label="Surfaces - Wipe all surfaces, tables, blenders, toasters; empty cereal catcher & beverage overflow">
+                        <label for="surfaces">Surfaces - Wipe all surfaces, tables, blenders, toasters; empty cereal catcher & beverage overflow</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="largeFridge" data-label="Large Fridge - Wipe doors/handles, organize, clean spills">
+                        <label for="largeFridge">Large Fridge - Wipe doors/handles, organize, clean spills</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="miniFridge" data-label="Mini-Fridge/Microwaves - Wipe inside & outside of microwave, wipe mini-fridge doors">
+                        <label for="miniFridge">Mini-Fridge/Microwaves - Wipe inside & outside of microwave, wipe mini-fridge doors</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="cafSweep" data-label="Sweep - Sweep cafeteria thoroughly (behind doors, under trashcans, corners, cabinets, seating, tables)">
+                        <label for="cafSweep">Sweep - Sweep cafeteria thoroughly (behind doors, under trashcans, corners, cabinets, seating, tables)</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="bathrooms" data-label="Bathrooms - Wipe counters/sinks/mirror, check stalls, replace toilet paper, restock, empty trash">
+                        <label for="bathrooms">Bathrooms - Wipe counters/sinks/mirror, check stalls, replace toilet paper, restock, empty trash</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="cafMop" data-label="Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket">
+                        <label for="cafMop">Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="cafTrash" data-label="Trash - Take garbage to dumpster, break down boxes, replace liner">
+                        <label for="cafTrash">Trash - Take garbage to dumpster, break down boxes, replace liner</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="exteriors" data-label="Exteriors - Pick up trash/equipment outside, return furniture, empty front door trash, shovel/sweep if needed">
+                        <label for="exteriors">Exteriors - Pick up trash/equipment outside, return furniture, empty front door trash, shovel/sweep if needed</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="butler" data-label="Butler - Make meals for absent students, retrieve dishes from dorm, deliver to kitchen">
+                        <label for="butler">Butler - Make meals for absent students, retrieve dishes from dorm, deliver to kitchen</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="rags" data-label="Rags - Wash, dry, and fold rags after breakfast (with morning staff help)">
+                        <label for="rags">Rags - Wash, dry, and fold rags after breakfast (with morning staff help)</label>
+                    </div>
                 </div>
+                
+                <!-- KITCHEN CHORES -->
+                <div class="section">
+                    <div class="section-title">👨‍🍳 Kitchen Chores</div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="dishes" data-label="Dishes - Turn on dishwasher/turbo box, rinse & run dishes, clean drain/filter, drain water, wipe down">
+                        <label for="dishes">Dishes - Turn on dishwasher/turbo box, rinse & run dishes, clean drain/filter, drain water, wipe down</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="dry" data-label="Dry - Take out dishes, dry them, wipe counter, use squeegee, put away">
+                        <label for="dry">Dry - Take out dishes, dry them, wipe counter, use squeegee, put away</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="potsPans" data-label="Pots & Pans - Spray, wash/scrub, rinse, sanitize; place on rack face down; clean/squeegee sinks">
+                        <label for="potsPans">Pots & Pans - Spray, wash/scrub, rinse, sanitize; place on rack face down; clean/squeegee sinks</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="sanitize" data-label="Sanitize - Dip scrubbed items in sani solution, ensure soap is off, place on drying rack">
+                        <label for="sanitize">Sanitize - Dip scrubbed items in sani solution, ensure soap is off, place on drying rack</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="kitchenSurfaces" data-label="Surfaces - Wipe prep tables, carts, sinks, dishwasher front, serving areas with sanitizer">
+                        <label for="kitchenSurfaces">Surfaces - Wipe prep tables, carts, sinks, dishwasher front, serving areas with sanitizer</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="kitchenSweep" data-label="Sweep - Sweep kitchen thoroughly (under tables, behind door, under trashcans, corners); move mats outside">
+                        <label for="kitchenSweep">Sweep - Sweep kitchen thoroughly (under tables, behind door, under trashcans, corners); move mats outside</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="stoves" data-label="Stoves - (Dinner/weekends only) Clean shiny parts, fronts, and stovetop (not griddle)">
+                        <label for="stoves">Stoves - (Dinner/weekends only) Clean shiny parts, fronts, and stovetop (not griddle)</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="hotBar" data-label="Hot Bar - Turn off/drain, store leftovers (dated), wipe condiments, scrub with steel wool, wipe front">
+                        <label for="hotBar">Hot Bar - Turn off/drain, store leftovers (dated), wipe condiments, scrub with steel wool, wipe front</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="saladBar" data-label="Salad Bar - Remove utensils, cover with lids, wipe all surfaces">
+                        <label for="saladBar">Salad Bar - Remove utensils, cover with lids, wipe all surfaces</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="walls" data-label="Walls - Check all walls/doors in kitchen & cafeteria for cleanliness">
+                        <label for="walls">Walls - Check all walls/doors in kitchen & cafeteria for cleanliness</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="kitchenMop" data-label="Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket, bring mats inside">
+                        <label for="kitchenMop">Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket, bring mats inside</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="kitchenTrash" data-label="Trash - Take garbage to dumpster, break down boxes, replace liner">
+                        <label for="kitchenTrash">Trash - Take garbage to dumpster, break down boxes, replace liner</label>
+                    </div>
+                </div>
+                
+                <!-- ADDITIONAL DINNER CHORES -->
+                <div class="section">
+                    <div class="section-title">🌙 Additional Dinner Chores</div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="hallway" data-label="Hallway - Remove items from benches/tables, clear clutter, take garbage to dumpsters">
+                        <label for="hallway">Hallway - Remove items from benches/tables, clear clutter, take garbage to dumpsters</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="library" data-label="Library - Take out trash, tidy furniture, clean surfaces, declutter, vacuum if needed">
+                        <label for="library">Library - Take out trash, tidy furniture, clean surfaces, declutter, vacuum if needed</label>
+                    </div>
+                    
+                    <div class="chore-item">
+                        <input type="checkbox" id="vacuum" data-label="Vacuum - Pick up items, remove personal items, vacuum both foyer rugs">
+                        <label for="vacuum">Vacuum - Pick up items, remove personal items, vacuum both foyer rugs</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">✅ Submit Checklist</button>
             </div>
-            
-            <!-- CAFETERIA CHORES -->
-            <div class="section">
-                <div class="section-title">🧹 Cafeteria Chores</div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="surfaces" data-label="Surfaces - Wipe all surfaces, tables, blenders, toasters; empty cereal catcher & beverage overflow">
-                    <label for="surfaces">Surfaces - Wipe all surfaces, tables, blenders, toasters; empty cereal catcher & beverage overflow</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="largeFridge" data-label="Large Fridge - Wipe doors/handles, organize, clean spills">
-                    <label for="largeFridge">Large Fridge - Wipe doors/handles, organize, clean spills</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="miniFridge" data-label="Mini-Fridge/Microwaves - Wipe inside & outside of microwave, wipe mini-fridge doors">
-                    <label for="miniFridge">Mini-Fridge/Microwaves - Wipe inside & outside of microwave, wipe mini-fridge doors</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="cafSweep" data-label="Sweep - Sweep cafeteria thoroughly (behind doors, under trashcans, corners, cabinets, seating, tables)">
-                    <label for="cafSweep">Sweep - Sweep cafeteria thoroughly (behind doors, under trashcans, corners, cabinets, seating, tables)</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="bathrooms" data-label="Bathrooms - Wipe counters/sinks/mirror, check stalls, replace toilet paper, restock, empty trash">
-                    <label for="bathrooms">Bathrooms - Wipe counters/sinks/mirror, check stalls, replace toilet paper, restock, empty trash</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="cafMop" data-label="Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket">
-                    <label for="cafMop">Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="cafTrash" data-label="Trash - Take garbage to dumpster, break down boxes, replace liner">
-                    <label for="cafTrash">Trash - Take garbage to dumpster, break down boxes, replace liner</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="exteriors" data-label="Exteriors - Pick up trash/equipment outside, return furniture, empty front door trash, shovel/sweep if needed">
-                    <label for="exteriors">Exteriors - Pick up trash/equipment outside, return furniture, empty front door trash, shovel/sweep if needed</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="butler" data-label="Butler - Make meals for absent students, retrieve dishes from dorm, deliver to kitchen">
-                    <label for="butler">Butler - Make meals for absent students, retrieve dishes from dorm, deliver to kitchen</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="rags" data-label="Rags - Wash, dry, and fold rags after breakfast (with morning staff help)">
-                    <label for="rags">Rags - Wash, dry, and fold rags after breakfast (with morning staff help)</label>
-                </div>
-            </div>
-            
-            <!-- KITCHEN CHORES -->
-            <div class="section">
-                <div class="section-title">👨‍🍳 Kitchen Chores</div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="dishes" data-label="Dishes - Turn on dishwasher/turbo box, rinse & run dishes, clean drain/filter, drain water, wipe down">
-                    <label for="dishes">Dishes - Turn on dishwasher/turbo box, rinse & run dishes, clean drain/filter, drain water, wipe down</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="dry" data-label="Dry - Take out dishes, dry them, wipe counter, use squeegee, put away">
-                    <label for="dry">Dry - Take out dishes, dry them, wipe counter, use squeegee, put away</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="potsPans" data-label="Pots & Pans - Spray, wash/scrub, rinse, sanitize; place on rack face down; clean/squeegee sinks">
-                    <label for="potsPans">Pots & Pans - Spray, wash/scrub, rinse, sanitize; place on rack face down; clean/squeegee sinks</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="sanitize" data-label="Sanitize - Dip scrubbed items in sani solution, ensure soap is off, place on drying rack">
-                    <label for="sanitize">Sanitize - Dip scrubbed items in sani solution, ensure soap is off, place on drying rack</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="kitchenSurfaces" data-label="Surfaces - Wipe prep tables, carts, sinks, dishwasher front, serving areas with sanitizer">
-                    <label for="kitchenSurfaces">Surfaces - Wipe prep tables, carts, sinks, dishwasher front, serving areas with sanitizer</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="kitchenSweep" data-label="Sweep - Sweep kitchen thoroughly (under tables, behind door, under trashcans, corners); move mats outside">
-                    <label for="kitchenSweep">Sweep - Sweep kitchen thoroughly (under tables, behind door, under trashcans, corners); move mats outside</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="stoves" data-label="Stoves - (Dinner/weekends only) Clean shiny parts, fronts, and stovetop (not griddle)">
-                    <label for="stoves">Stoves - (Dinner/weekends only) Clean shiny parts, fronts, and stovetop (not griddle)</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="hotBar" data-label="Hot Bar - Turn off/drain, store leftovers (dated), wipe condiments, scrub with steel wool, wipe front">
-                    <label for="hotBar">Hot Bar - Turn off/drain, store leftovers (dated), wipe condiments, scrub with steel wool, wipe front</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="saladBar" data-label="Salad Bar - Remove utensils, cover with lids, wipe all surfaces">
-                    <label for="saladBar">Salad Bar - Remove utensils, cover with lids, wipe all surfaces</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="walls" data-label="Walls - Check all walls/doors in kitchen & cafeteria for cleanliness">
-                    <label for="walls">Walls - Check all walls/doors in kitchen & cafeteria for cleanliness</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="kitchenMop" data-label="Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket, bring mats inside">
-                    <label for="kitchenMop">Mop - Use clean mop head, scrub hard spots, place mops upright, empty bucket, bring mats inside</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="kitchenTrash" data-label="Trash - Take garbage to dumpster, break down boxes, replace liner">
-                    <label for="kitchenTrash">Trash - Take garbage to dumpster, break down boxes, replace liner</label>
-                </div>
-            </div>
-            
-            <!-- ADDITIONAL DINNER CHORES -->
-            <div class="section">
-                <div class="section-title">🌙 Additional Dinner Chores</div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="hallway" data-label="Hallway - Remove items from benches/tables, clear clutter, take garbage to dumpsters">
-                    <label for="hallway">Hallway - Remove items from benches/tables, clear clutter, take garbage to dumpsters</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="library" data-label="Library - Take out trash, tidy furniture, clean surfaces, declutter, vacuum if needed">
-                    <label for="library">Library - Take out trash, tidy furniture, clean surfaces, declutter, vacuum if needed</label>
-                </div>
-                
-                <div class="chore-item">
-                    <input type="checkbox" id="vacuum" data-label="Vacuum - Pick up items, remove personal items, vacuum both foyer rugs">
-                    <label for="vacuum">Vacuum - Pick up items, remove personal items, vacuum both foyer rugs</label>
-                </div>
-            </div>
-            
-            <button type="button" onclick="submitForm()" class="submit-btn">✅ Submit Checklist</button>
-            
-            <div id="successMessage" class="success-message">
-                ✅ Checklist submitted successfully!
-            </div>
-            
-            <div id="errorMessage" class="error-message">
-                ❌ There was an error submitting the checklist. Please try again.
-            </div>
-        </div>
+        </form>
     </div>
     
     <script>
-        async function submitForm() {
+        function prepareFormSubmission(event) {
             const studentName = document.getElementById('studentName').value.trim();
             const staffName = document.getElementById('staffName').value.trim();
             
             if (!studentName || !staffName) {
                 alert('Please enter both student name and staff name.');
-                return;
+                event.preventDefault();
+                return false;
             }
             
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             const totalChores = checkboxes.length;
             const completedChores = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const incompleteChores = totalChores - completedChores;
+            const completionPercentage = Math.round((completedChores / totalChores) * 100);
             
             const completedTasks = [];
             const incompleteTasks = [];
@@ -394,62 +369,44 @@
                 }
             });
             
-            const completionPercentage = Math.round((completedChores / totalChores) * 100);
+            const timestamp = new Date().toLocaleString('en-US', { 
+                timeZone: 'America/Denver',
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            });
             
-            // Format data for Power Automate
-            const formData = {
-                studentName: studentName,
-                staffName: staffName,
-                timestamp: new Date().toLocaleString('en-US', { 
-                    timeZone: 'America/Denver',
-                    dateStyle: 'medium',
-                    timeStyle: 'short'
-                }),
-                completionPercentage: completionPercentage,
-                completedTasks: completedTasks.join('; '),
-                incompleteTasks: incompleteTasks.join('; ')
+            // Create hidden form fields
+            const form = document.getElementById('choreForm');
+            
+            // Remove any existing hidden fields (in case of resubmission)
+            form.querySelectorAll('input[type="hidden"]').forEach(field => field.remove());
+            
+            // Add all the data as hidden form fields
+            const fields = {
+                'timestamp': timestamp,
+                'totalChores': totalChores,
+                'completedChores': completedChores,
+                'incompleteChores': incompleteChores,
+                'completionPercentage': completionPercentage,
+                'completedTasks': completedTasks.join('||'),
+                'incompleteTasks': incompleteTasks.join('||')
             };
+            
+            Object.entries(fields).forEach(([name, value]) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                input.value = value;
+                form.appendChild(input);
+            });
             
             // Show submitting state
             const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
             submitBtn.textContent = '⏳ Submitting...';
             submitBtn.disabled = true;
             
-            // Hide any previous messages
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('errorMessage').style.display = 'none';
-            
-            try {
-                // Replace with your Rewst webhook URL
-                const response = await fetch('https://engine.rewst.io/webhooks/custom/trigger/019be1ff-155a-7c00-ae39-1dd71708726e/24bb7605-f6ef-4806-a56f-bdf4e0fd45e5', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (response.ok) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    // Reset form after successful submission
-                    setTimeout(() => {
-                        document.getElementById('studentName').value = '';
-                        document.getElementById('staffName').value = '';
-                        checkboxes.forEach(cb => cb.checked = false);
-                        document.getElementById('successMessage').style.display = 'none';
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 3000);
-                } else {
-                    throw new Error('Submission failed');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('errorMessage').style.display = 'block';
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
+            // Allow the form to submit normally
+            return true;
         }
     </script>
 </body>
